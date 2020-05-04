@@ -102,11 +102,13 @@ class MessageUpdateView(UpdateView):
     model = Message
     context_object_name = "message"
     form_class = MessageForm
+    queryset = Message.objects.select_related("project")
     template_name = "projects/message_update.html"
 
 
 class MessageDeleteView(DeleteView):
     model = Message
     context_object_name = "message"
+    queryset = Message.objects.select_related("project")
     template_name = "projects/message_delete.html"
     success_url = reverse_lazy(url_names.home)

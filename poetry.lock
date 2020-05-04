@@ -121,6 +121,18 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 category = "dev"
+description = "A configurable set of panels that display various debug information about the current request/response."
+name = "django-debug-toolbar"
+optional = false
+python-versions = ">=3.5"
+version = "2.2"
+
+[package.dependencies]
+Django = ">=1.11"
+sqlparse = ">=0.2.0"
+
+[[package]]
+category = "dev"
 description = "Clean single-source support for Python 3 and 2"
 name = "future"
 optional = false
@@ -604,7 +616,7 @@ python-versions = "*"
 version = "0.1.9"
 
 [metadata]
-content-hash = "3dce2471a50db9e2f1508096cb144a58601ebe68d336891cb6e8fc99f674986d"
+content-hash = "22a0faccb52eb60556378971f3fcc80125b2ea6d6cc84a0878ed5fb06d8de7a6"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -651,6 +663,10 @@ decorator = [
 django = [
     {file = "Django-3.0.5-py3-none-any.whl", hash = "sha256:642d8eceab321ca743ae71e0f985ff8fdca59f07aab3a9fb362c617d23e33a76"},
     {file = "Django-3.0.5.tar.gz", hash = "sha256:d4666c2edefa38c5ede0ec1655424c56dc47ceb04b6d8d62a7eac09db89545c1"},
+]
+django-debug-toolbar = [
+    {file = "django-debug-toolbar-2.2.tar.gz", hash = "sha256:eabbefe89881bbe4ca7c980ff102e3c35c8e8ad6eb725041f538988f2f39a943"},
+    {file = "django_debug_toolbar-2.2-py3-none-any.whl", hash = "sha256:ff94725e7aae74b133d0599b9bf89bd4eb8f5d2c964106e61d11750228c8774c"},
 ]
 future = [
     {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
