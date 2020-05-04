@@ -17,7 +17,7 @@ make run
 ```
 
 Your development instance of Camping will be running on
-[](http://localhost:8000). `make run` runs the development server of
+[localhost:8000](http://localhost:8000). `make run` runs the development server of
 Django, alternative you can enter to the container shell and run the
 server yourself.
 
@@ -32,3 +32,9 @@ them with the `watch` option.
 ```bash
 make frontend-watch
 ```
+
+## Documentation
+
+The project uses [mkdocs](https://www.mkdocs.org/) for the
+documentation. The source is under the `docs` folder. To build it run
+`make docs-build`.
