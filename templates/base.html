@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="turbolinks-cache-control" content="no-cache">
+  <title>Camping</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/app.js' %}" defer></script>
+  <script src="{% static 'js/trix.js' %}" defer></script>
+  <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon"/>
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="app">
+  <header class="app__header">
+    <p>Camping</p>
+  </header>
+  <nav class="app__nav">
+    <ul class="navigation">
+      <li><a href="{% url 'home' %}">Home</a></li>
+    </ul>
+  </nav>
+  <main class="app__main">
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "camping",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Manu Pascual Luna <manu.pascual.luna@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "turbolinks": "^5.2.0"
+  },
+  "devDependencies": {
+    "cypress": "^4.4.1",
+    "parcel": "^1.12.4"
+  }
+}

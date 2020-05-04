@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="panel top-separated">
+    <nav class="card-nav centered">
+      <a class="decorated bold" href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+    </nav>
+    <article class="card main-content shadowed">
+      <header class="centered">
+        <h2>Edit details of this project</h2>
+      </header>
+      <form method="post">
+        {% csrf_token %}
+
+        <section>
+          <h3><label for="">Name</label></h3>
+          <p>{{ form.name }}</p>
+        </section>
+
+        <section>
+          <h3><label for="">Description</label></h3>
+          <p>{{ form.description }}</p>
+        </section>
+
+        <footer class="centered">
+          <button class="btn btn--primary">Update</button>
+        </footer>
+      </form>
+    </article>
+      </section>
+{% endblock %}

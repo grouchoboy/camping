@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <section class="panel top-separated">
+    <article class="project">
+      <header class="project-header centered">
+        <h1 class="project-header__name">{{ project.name }}</h1>
+        <h4 class="project-header__name normal">{{ project.description }}</h4>
+      </header>
+
+      <section class="project-hub">
+        <a href="{% url 'messages' project.pk %}">
+          <article class="project-card">
+            <header class="centered">
+              <h3 class="project-card__title">
+                {% trans 'Messages' %}
+              </h3>
+            </header>
+          </article>
+        </a>
+      </section>
+
+      <footer class="project__footer">
+        <a class="decorated" href="{% url 'project_delete' project.pk %}">
+          {% trans 'Delete Project' %}
+        </a>
+        <a class="decorated" href="{% url 'project_update' project.pk %}">
+          {% trans 'Update Project' %}
+        </a>
+      </footer>
+    </article>
+  </section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<section class="panel panel--big top-separated">
+  <nav class="card-nav centered">
+    <p class="no-margin">
+      <a class="decorated bold" href="{{ project.get_absolute_url }}">
+        {{ project.name }}
+      </a>
+      <span aria-hidden="true"> › </span>
+      <a class="decorated" href="{% url 'messages' project.pk %}">
+        {% trans 'Messages' %}
+      </a>
+    </p>
+  </nav>
+  <article class="card shadowed main-content">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.project }}
+      {{ form.content }}
+
+      <section>
+        <h1 class="no-margin">
+          <label class="sr" for="{{ form.title.id_for_label }}" name="{{ form.title.label }}">
+            {% trans 'Title' %}
+          </label>
+          {{ form.title }}
+        </h1>
+      </section>
+
+      <section>
+        <label class="sr" for="{{ form.content.id_for_label }}" name="{{ form.content.label }}">
+          {% trans 'Content' %}
+        </label>
+        <p class="no-margin">
+          <trix-editor class="input--borderless" input="{{ form.content.id_for_label }}" placeholder="Write away..."></trix-editor>
+        </p>
+      </section>
+
+      <button class="btn btn--primary">
+        {% trans 'Post this message' %}
+      </button>
+    </form>
+  </article>
+</section>
+{% endblock %}

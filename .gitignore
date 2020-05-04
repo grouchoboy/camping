@@ -1,0 +1,9 @@
+node_modules/
+*.egg-info/
+dist/
+*.sqlite3
+.cache/
+.env
+*.mo
+.pytest_cache/
+docs/site/

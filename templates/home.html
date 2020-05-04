@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="panel">
+  <header class="centered"><h1>Your Projects</h1></header>
+    <section class="projects-grid">
+      {% for project in projects %}
+        <a href="{{ project.get_absolute_url }}">
+          <article class="projects-content">
+              <p>{{ project.name }}</p>
+          </article>
+        </a>
+      {% endfor %}
+        <a href="{% url 'project_create' %}">
+          <article class="projects-content">
+            <p>Add another project</p>
+          </article>
+        </a>
+    </section>
+</section>
+{% endblock %}

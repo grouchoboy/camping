@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <section class="panel panel--big">
+    <nav class="card-nav centered">
+      <a class="decorated bold" href="{{ project.get_absolute_url }}">
+        {{ project.name }}
+      </a>
+    </nav>
+    <section class="card main-content shadowed">
+      <header class="messages-header centered">
+        <h1 class="messages-header__title">
+          {% trans "Messages" %}
+        </h1>
+        <div class="messages-header__create">
+          <a class="btn btn--primary btn--small" href="{% url 'message_create' project.pk %}">
+            {% trans 'New message' %}
+          </a>
+        </div>
+      </header>
+
+      <section>
+        {% for message in messages %}
+          <article>
+            <header>
+              <a href="{{ message.get_absolute_url }}">
+                <h3>{{ message.title }}</h3>
+              </a>
+            </header>
+          </article>
+        {% endfor %}
+      </section>
+    </section>
+  </section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="panel top-separated">
+    <article class="card shadowed main-content">
+      <header class="centered">
+        <h2>All right, let's get your project started!</h2>
+      </header>
+      <form method="post">
+        {% csrf_token %}
+        <section>
+          <h3>
+            <label for="">Name</label>
+          </h3>
+          <p>
+            {{ form.name }}
+          </p>
+
+        </section>
+
+        <section>
+          <h3>
+            <label for="">Description</label>
+          </h3>
+          <p>
+            {{ form.description }}
+          </p>
+        </section>
+
+        <footer class="centered">
+          <button class="btn btn--primary">Create</button>
+        </footer>
+      </form>
+    </article>
+  </section>
+{% endblock %}

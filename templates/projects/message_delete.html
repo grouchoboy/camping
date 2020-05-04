@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <section class=panel>
+    <nav class="card-nav centered">
+      <a class="decorated bold" 
+         href="{{ message.project.get_absolute_url }}">
+        {{ message.project.name }}
+      </a>
+      <span aria-hidden="true"> › </span>
+      <a class="decorated" href="{% url 'messages' message.project.pk %}">
+        {% trans 'Messages' %}
+      </a>
+      <span aria-hidden="true"> › </span>
+      <a class="decorated" href="{{ message.get_absolute_url }}">
+        {{ message.title }}
+      </a>
+    </nav>
+    <section class="card main-content shadowed">
+      <h1 class=centered>
+        {% blocktrans %}
+          Permanently delete the message <i>{{ message.title }}?</i>
+        {% endblocktrans %}
+      </h1>
+
+      <p>
+        {% blocktrans %}
+          Once you hit delete, you will no longer hace access
+          to this message.
+        {% endblocktrans %}
+      </p>
+
+      <form method="post" class="centered">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn--delete">
+          {% trans 'Delete' %}
+        </button>
+      </form>
+    </section>
+  </section>
+{% endblock %}

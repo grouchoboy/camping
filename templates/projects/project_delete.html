@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <section class="panel">
+    <nav class="card-nav centered">
+      <a class="decorated bold" href="{{ project.get_absolute_url }}">
+        {{ project.name }}
+      </a>
+    </nav>
+    <section class="card main-content shadowed">
+      <h1 class="centered">Permanently delete {{ project.name }}?</h1>
+      
+      <p>
+      {% blocktrans %}
+        Once you hit delete, you will no longer have access to this project or any files you’ve uploaded to this project. 
+        <strong>There is no undo.</strong>
+      {% endblocktrans %}
+      </p>
+
+      <form class="centered" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn--delete">
+          {% trans 'Delete' %}
+        </button>
+      </form>
+    </section>
+  </section>
+{% endblock %}

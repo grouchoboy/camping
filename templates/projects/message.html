@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<section class="panel panel--big top-separated">
+  <nav class="card-nav centered">
+    <p class="no-margin">
+      <a class="decorated bold" href="{{ project.get_absolute_url }}">
+        {{ project.name }}
+      </a>
+      <span aria-hidden="true"> › </span>
+      <a class="decorated" href="{% url 'messages' project.pk %}">
+        {% trans 'Messages' %}
+      </a>
+    </p>
+  </nav>
+  <article class="card shadowed main-content">
+    <header class="message-header">
+      <h1 class="message-header__title no-margin">
+        {{ message.title }}
+      </h1>
+      <time class="message-header__time" 
+        datetime="{{ edited_at_long }}">
+        {{ edited_at_short }}
+      </time>
+      <aside class="message-header__actions">
+        <a class="decorated" href="{{ message.update_url }}">Edit</a>
+        <a class="decorated" href="{{ message.delete_url }}">Delete</a>
+      </aside>
+    </header>
+    <section>
+      {{ message.content|safe }}
+    </section>
+  </article>
+</section>
+{% endblock %}
